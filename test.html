@@ -1,0 +1,257 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="container" style="height: 500px;"></div>
+
+    <select id="mySelect" onchange="selectOnchange()">
+        <option value="data1">青少年识字率女性</option>
+        <option value="data2">青少年识字率男性</option>
+	<option value="data3">出生率</option>
+        <option value="data4">失业率</option>
+        <option value="data5">小学教育毛入学率</option>
+	<option value="data6">高等教育毛入学率</option>
+        <!-- 其他选项 -->
+    </select>
+<select id="chartType" onchange="chartTypeOnchange()">
+        <option value="map">地图</option>
+	<option value="treemap">树图</option>
+        <option value="bar">柱状图</option>
+        <option value="pie">饼图</option>
+        <!-- 其他图表类型 -->
+</select>
+<input type="number" id="intervalInput" placeholder="切换间隔（毫秒）" />
+    <button onclick="startAutoSwitch()">start</button>
+    <button onclick="stopAutoSwitch()">stop</button>
+<button onclick="navigateToAnotherPage()">动态排序图</button>
+<button onclick="navigateToAnotherPage1()">日历饼图</button>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script> 
+<script type="text/javascript" src="./data/Youth_15_24_Literacy_Rate_Female.js"></script>
+<script type="text/javascript" src="./data/Youth_15_24_Literacy_Rate_Male.js"></script>
+ <script type="text/javascript" src="./data/Birth_Rate.js"></script>
+  <script type="text/javascript" src="./data/Unemployment_Rate.js"></script>
+<script type="text/javascript" src="./data/Gross_Tertiary_Education_Enrollment.js"></script>
+<script type="text/javascript" src="./data/Gross_Primary_Education_Enrollment.js"></script>
+
+
+    <script type="text/javascript">
+        var mapOption;
+        var myChart = echarts.init(document.getElementById('container'));
+	text1="Literacy rate among female youths aged 15-24";
+	text2="Literacy rate among male youths aged 15-24";
+	text3="Birth rate in the respective countries/areas.";
+	text4="Unemployment rate in the respective countries/areas.";
+	text5="Gross enrollment in primary education.";
+	text6="Gross enrollment in tertiary education.";
+	var dataArray = [data1, data2,data3,data4,data5,data6];  // 将数据存放在数组中
+	var textarray=[text1, text2,text3,text4,text5,text6];
+        var currentIndex = 0;
+	var autoSwitchTimer;
+	
+
+
+        function selectOnchange() {
+	currentIndex = 0;
+            var selectedValue = document.getElementById("mySelect").value;
+            var data = dataArray.find(arr => arr === window[selectedValue]);
+
+            switch (selectedValue) {
+                case "data1":
+                    updateChartWithData(data1,text1);
+                    break;
+                case "data2":
+                    updateChartWithData(data2,text2);
+                    break;
+		case "data3":
+                    updateChartWithData(data3,text3);
+                    break;
+                case "data4":
+                    updateChartWithData(data4,text4);
+                    break;
+		case "data5":
+                    updateChartWithData(data5,text5);
+                    break;
+                case "data6":
+                    updateChartWithData(data6,text6);
+                    break;
+                // 其他选项
+                default:
+                    console.error("未知选项");
+            }
+        }
+
+	function chartTypeOnchange() {
+            var selectedValue = document.getElementById("mySelect").value;
+	    switch (selectedValue) {
+                case "data1":
+                    updateChartWithData(data1,text1);
+                    break;
+                case "data2":
+                    updateChartWithData(data2,text2);
+                    break;
+		case "data3":
+                    updateChartWithData(data3,text3);
+                    break;
+                case "data4":
+                    updateChartWithData(data4,text4);
+                    break;
+		case "data5":
+                    updateChartWithData(data5,text5);
+                    break;
+                case "data6":
+                    updateChartWithData(data6,text6);
+                    break;
+                // 其他选项
+                default:
+                    console.error("未知选项");
+            }
+        }
+
+        function updateChartWithData(data,text) {
+	console.log('Data received:', data);
+	min=0;
+	max=100;
+	var chartType = document.getElementById("chartType").value;
+	if(data==data4||data==data3){max=50};
+            mapOption = {
+                title: {
+                    left: 'center',
+                    text: text
+                },
+                visualMap: {
+                    left: 'right',
+                    min: min,
+                    max: max,
+                    inRange: {
+                        color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                    },
+                    text: ['High', 'Low'],
+                    calculable: true
+                },
+                series: [{
+                    id: 'population',
+                    type: 'map',
+                    roam: true,
+                    map: 'world',
+                    animationDurationUpdate: 1000,
+                    universalTransition: true,
+                    data: data
+                }]
+            };
+	treemapOption = {
+      series: [
+        {
+          type: 'treemap',
+          id: 'population',
+          animationDurationUpdate: 1000,
+          roam: false,
+          nodeClick: undefined,
+          data: data,
+          universalTransition: true,
+	color: function (colors) {
+            var colorList = ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026',  '#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026','#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026','#313695'     ];
+            return colorList[colors.dataIndex];
+          },
+          label: {
+            show: true
+          },
+          breadcrumb: {
+            show: false
+          }
+        }
+      ]
+    };
+	barOption = {
+ yAxis: {
+      type: 'value',
+
+    },
+    xAxis: {
+      type: 'category',
+boundaryGap: false,
+inverse: true,
+      axisLabel: {
+        rotate: 30
+      },
+      data: data.map(function (item) {
+        return item.name;
+      })
+    },
+    animationDurationUpdate: 1000,
+    series: {
+      type: 'bar',
+      id: 'population',
+      data: data.map(function (item) {
+        return item.value;
+      }),
+     universalTransition: true
+    }
+  };
+
+pieOption = {
+        series: [
+    {
+      type: 'pie',
+      id: 'population',
+      data: data,
+      radius: [0, '50%'],
+	universalTransition:  true,
+animationDuration:1000,
+      itemStyle: {
+        normal: {
+         
+        },
+      }
+    }
+  ]
+};
+
+	switch (chartType) {
+	case "map":
+		myChart.setOption(mapOption, true);
+		break;
+	case "treemap":
+		myChart.setOption(treemapOption, true);
+		break;
+	case "pie":
+		myChart.setOption(pieOption, true);
+		break;
+	case "bar":
+		myChart.setOption(barOption, true);
+		break;
+	default:
+		myChart.setOption(mapOption, true);
+		break;
+	}
+        } function startAutoSwitch() {
+            var interval = parseInt(document.getElementById("intervalInput").value, 10);
+
+            if (!isNaN(interval) && interval > 0) {
+                autoSwitchTimer = setInterval(function () {
+                    currentIndex = (currentIndex + 1) % dataArray.length;
+                    updateChartWithData(dataArray[currentIndex],textarray[currentIndex]);
+                }, interval);
+            }
+        }
+
+        function stopAutoSwitch() {
+            clearInterval(autoSwitchTimer);
+        }
+        // 初始加载
+        selectOnchange();
+function navigateToAnotherPage() {
+            // 更改当前页面的 URL
+            window.location.href = "bar-race-country.html";
+        }
+function navigateToAnotherPage1() {
+            // 更改当前页面的 URL
+            window.location.href = "calendar-pie.html";
+        }
+ </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=calendar-pie&code=PTAEBUAsEsGdQKYA8CGBbADgGwaATggI4Cu0B8AogMKQp4Au8AbgKwB0ALGwAygD2eUFhT0EeAFABjPgDtY9UJIRYsAZWgAvXAF5QAbQCc3ADSgjAXQDcU2fNAZoCAEooAJtGLxdAZm7WAZsQykvTQsqAA5gj0AGpk9MQoWAAiIigAFACUoADe4qCKtgquIjqgANQIkrQMsGyhaAhsGHSwCOkA5ABM3ACMAOwAtNzew70dmdYF0nIKCDKuoLqV1XSM9dCNza3t3X1D3BxjE1OFs6AlAJ7gm2XeAGzcvABUoF0coK-9T375Z3YlegoJb6Kx_fwCUDpHAKBplQEISygOGgAA8iAWSJR5V0VxujWyeQKBUBKGankg6T0f2JiFWtQ2WwheDQInScNMHRylx5lwAvoMcgBZIUCnKuVx8jqmfxJNqZYw04lCkSQNj-LB8ATpFX0NV4FALPhoLKfUDfH6ZJXmSZ_Pl_AgJPAyC5paz2mZ2WCSESiPCpIEgqKxeKJFJpLLWUnaPR6XoGAxdYwsAAcbH6_W8xm-vXTLGMBnubF63l6xhTBmLBn6Bcrhfu2d6XU4-cebBTvQ4xnuadL3nMxjjCazqfbnez3GbvRTBaLXS6BgL3DYLA4i4txazvW3bCz91z24bPfbXRYA6HBi7LErKY7E-bHAbhc49y7BlzHHzG-8Xe3y_ui73M23AGDOAFsABBjnvGBits2QE1t88Gzi2-ZGHmDYbtwiHfO2gFcN4Wb9LmXT9FBg4wUezYpiB967jWz7bkuLZZgm6ZJn-nBJq-K7cA2xFjvc0EJjW9z9KhE4Hm-Rb9HxzGXgxdavo2y6lt2aZGPm_RcGR_TCaB6m7kxOZsJeKEphwDHLv0-4TsuZacSme6Vqm_HsL4Z4UQmgHiT2W59OmBbiWuBa5g8kmNs2hHdpW3wzv07BPJ5eg9E8xiyTw16SbuBZphwTGJumTnZbejZER-3hJhmVZdOeqVlpmxYAdln65e2tGFfcLCYZOmVlaZXbae24VkRBYl1U8VVpvGv4BSwrGVl0P4Ft4nAJve_VJjRu4zhZEHbhNIzlrmYmzbmqYRdWvGISMEG_k2xZlk5eZdrePALodr1cLNwH-bmKaKcWcnfFwp4qaZ-YpkWFlvtZ9xCYOqWQ8FF1IWw850e8dmcA5hxGROLmQ5WGYMat3j9LViNPE-qlg2jk6YzdubcF-t3rXF70Fg-C4FuwTkcIdDHNv0d4meut1LdlQETjpM7fItZaXu2HAzldLCUylTyq-JJa4_9PWrSr2WHDLnCzZW0WgemR1YeRmsdeJTk9SdBv4xuXWm70PWLYuVtdTd1kTd8QUQVjJmWXRrPWXLEs3UWBisXlPbYxZQeK-JTNu71_nWbNq0m98RatVbAxnbuGs9E2bX3N4rMVXRhYlTHq3J4XO21jwzUmSmFd9In6PRSZxETqtPNozHXC9Kzc4d9wFbZe-QdvtNpUmWpQ9l8paPkyPnCq7FiYlQLVNTyHU-ZwXAWDwFIt0XPkfLyuO8mdhQdPmmIEcU86bi82q6m1_MmrNgJoVihZbK14g4MTTBmHOgU0bjm-IbHqwtM6Zg7hTL-zYPon33kVHqy4OALXRuAq6jwkxsXjBAgOd1d7H01lQjcZFsbeF9hbeeasO5Ni_udTeX8CJ6Spj0bKFMO5OXFsuPobVvDFTYj2PhdEZGm1ghNLouN_wdyArNEwVsOygPbMVcOzsVye17hjd2isbwRxMiwTOYkRHGPFrw3eCZzDiDBJ6BQDgECqDEI4LwoBvS-jEAGMkrIMDpECMEUI4R0jQFEGgUw0AFjIEJA6aIxBnS5CVPQS4GAEAAC5QAdG8dKJU0BXBFJKY4QYHQKigGSa4ZAipaRKBkH6Ip8SEBoD0NwAcSoDTuE8EU7xLghmwBacSaQAh3AyFKKoS48hulVJ9DgBYdAym0mEAAI2UEUoktJQDMlZPQDpxSciSClJM2kGA-CwHiWEGQVTkn3KaR0JUfJrmuiBEU6khzcigDmY0KpAAZPgAB3BpwRjQIGlKAJgSRiCFO-SgPQjTkDmDjOYT5SoCg5EBegZFHQAAS0AIiQChdIRocKEVYCRUU0kaKUlIExbVHF_z8VAqJWCyFAAyUAaAKmuBwJSmFNLEXIsZeilleh-zssOZywloKIViAFUKkVySqWwtMLS-lKKmVNJlQLeVtJFXAuKUKdVuBNVip1RKhlaQDUYr0GeE1xIzVEoAKoYHyYIQVEoNXQupXaulkrHXSsxUJN17qCXmpJQgFATBoBYEuFCpp2zRCLFuZCaQQR6B4H8VCYlABJAAClQTI4rQ0OqBE6mVelo0Aq5aChNAIEBMGUHwfJixc3tILQgWARTPUADlFDCFgPc_w0AfQxJkFWvVUrmWYpTNir5BRrR2ndLaLts6QQHNCPQHABSDkFFEEgegqhclHouXwTUeACkACJmQDvoBEAg8wH1uvoF2x93AH1fJwP4egj62l-n_UqCE7T7laFAAU4OOTkDAYfaoaoWosAYjwLerAjR2mmAwAW1keBU3pAAKSREwxO7IyTCh5v7fAcF8SKU2saBcOALQC2hAHZ-yZ37b2hAwPs-VOAogLH2UqUkvyOg8tFcG4ppLyUye1cU6T_L_XCutUG7VUmVV-qtYp6UHRLUBo01qgz3rfVquM_p4w8bE3JtTeijNCAs1akEL2_Nhb0glvLZWzkILW3FHbZ27tNG-3-KHaOyQ47J3TpEI8up_TaTbL4Kc40RSTADLJZAYDoBuB2kmas-YJR73ZNpN-gTxS1M4E2cSQDOWOigbEDVgoAhHDtKqR2hgsWsDNcUMoNQmhkVKBUOoLQXzLgJrwCClAuysBif-bASAEKimyiwG0NdRzZAXsG0U3wHyvlXGm7N-bhzCMRGSUU4RuKjlkHkKkS4RSyzXa5SqCregOhwo-5yT7P3vt_eKR0NxtI3VoC25AI7ezSuHMW8to5coED7YGYaKIknK4HG8ID_Lfw2h0d-UqE9xIKlVJ2coXrp68lEqCacprG3pl4FmfMxZCSVlJCKxsjbsBLhoGSwNrQ6WNsk7m1DhbS3wVFPzUijbBRjnBJK1EkIjyoTsfQLANJ_zaSOkyS6YdxBudiHSFUGo6w4TqgECc9Iyu0B1F1QgXpA5zkSiuXDtbCBMiZHKD0ecgxSynH-Y2lr_h_BtBy3oQYw3ee276aAMAXR6nB1AGH_ro3be9HMNHt4ce-lS82-05PRT-jXcbRJwJM6_ShMR7SNgVfvG-Lo38NxfJLBAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.4.3/files/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.4.3/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.4.3/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    // This example requires ECharts v5.4.0 or later
+const cellSize = [90, 90];
+const pieRadius = 30;
+function getVirtualData() {
+  const date = +echarts.time.parse('2017-03-01');
+  const end = +echarts.time.parse('2017-04-01');
+  const dayTime = 3600 * 24 * 1000;
+  const data = [];
+  for (let time = date; time < end; time += dayTime) {
+    data.push([
+      echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),
+      Math.floor(Math.random() * 10000)
+    ]);
+  }
+  return data;
+}
+const scatterData = getVirtualData();
+data=[[1992,58.773,101.75,96.131,89.197,99.966,112.45,60.814,68.313],[1993,58.814,102.18,96.229,90.549,100.13,111.3,61.116,68.825],[1994,59.881,102.46,96.464,91.45,100.34,110.69,62.098,69.699],[1995,62.627,102.6,96.455,90.756,100.07,110.89,64.33,71.279],[1996,62.809,102.37,96.11,90.453,99.72,110.42,64.506,71.816],[1997,67.455,101.14,96.706,90.947,99.964,110.31,68.905,74.797],[1998,68.311,101.94,96.847,90.761,100.1,110.83,69.586,75.305],[1999,67.683,101.7,97.49,91.36,101,112.33,69.108,75.005],[2000,70.059,101.3,98.411,92.783,101.88,113,71.432,77.192],[2001,73.169,101.45,98.809,92.656,102.05,113.94,74.836,79.667],[2002,78.194,101.53,99.234,93.499,102,113.2,80.38,84.611],[2003,81.674,101.58,101,97.507,103.64,112.11,83.754,88.029],[2004,84.4,102.03,101.87,99.106,104.25,110.95,86.844,90.766],[2005,87.458,102.22,102.24,100.41,104.31,109.55,89.777,93.372],[2006,90.325,102.02,102.27,101.05,103.99,108.02,92.429,95.834],[2007,92.781,101.9,103.23,101.62,104.78,109.21,94.848,97.52],[2008,97.131,101.86,103.48,101.04,104.44,109.33,98.703,100.09],[2009,97.836,101.66,103.31,100.65,104.16,109.29,98.657,100.7],[2010,97.624,101.47,102.5,100.78,103.27,106.93,98.468,100.84],[2011,97.7,101.31,102.3,100.74,103.04,106.45,98.174,101.32],[2012,98.635,101.43,102.96,101.88,103.68,106.38,99.069,101.82],[2013,98.233,101.71,103.29,102.8,104.15,106.2,99.089,101.91],[2014,98.188,101.31,101.74,101.64,102.37,103.48,99.192,101.84],[2015,97.157,101.04,101.33,101.78,102.08,102.54,98.537,101.07],[2016,98.092,100.79,102.54,104.2,103.35,102.05,99.184,101.59],[2017,98.773,100.7,102.14,103.46,102.77,101.73,99.722,102.29],[2018,99.786,100.43,99.284,97.602,99.19,101.57,100.64,103.4],[2019,100.79,100.39,99.389,97.5,99.122,101.54,101.62,104.37],[2020,101.72,99.839,100.01,98.383,99.684,101.62,102.38,104.95],[2021,100.6,99.624,100,98.815,99.883,101.46,101.5,104.12],[2022,100.61,99.847,101.57,101.67,101.76,101.9,101.54,103.99]
+];
+const pieSeries = scatterData.map(function (item, index) {
+  return {
+    type: 'pie',
+    id: 'pie-' + index,
+    center: item[0],
+    radius: pieRadius,
+    coordinateSystem: 'calendar',
+    label: {
+      formatter: '{c}',
+      position: 'inside'
+    },
+    data: [
+      { name: 'Low income', value: data[index][1]},
+      { name: 'High income', value: data[index][2]},
+      { name: 'Low & middle income', value: data[index][3]},
+      { name: 'Lower middle income', value: data[index][4]},
+      { name: 'Middle income', value: data[index][5]},
+      { name: 'Upper middle income', value: data[index][6]},
+       { name: 'Heavily indebted poor countries (HIPC)', value: data[index][7]},
+      { name: 'Least developed countries: UN classification', value: data[index][8]},
+      
+    ]
+  };
+});
+option = {
+  title:{
+    textStyle:{color:"forestgreen"},
+    top:"0",
+    left:"center",
+    fontsize :10,
+    text:"School enrollment, primary (% gross) in countries with income disparities"},
+  tooltip: {},
+  legend: {
+    data: ['Low income', 'High income', 'Low & middle income','Lower middle income','Middle income','Upper middle income','Heavily indebted poor countries (HIPC)', 'Least developed countries: UN classification' ],
+    bottom: 0,
+    right: 0
+  },
+  calendar: {
+    top: 'middle',
+    left: 'center',
+    orient: 'vertical',
+    cellSize: cellSize,
+    yearLabel: {
+      show: false,
+      fontSize: 30
+    },
+    dayLabel: {
+      margin: 20,
+      firstDay: 1,
+      nameMap: ['', '', '', '', '', '', '', '']
+    },
+    monthLabel: {
+      show: false
+    },
+    range: ['2017-03']
+  },
+  series: [
+    {
+      id: 'label',
+      type: 'scatter',
+      coordinateSystem: 'calendar',
+      symbolSize: 0,
+      label: {
+        show: true,
+        formatter: function (params) {
+          return Number(echarts.time.format(params.value[0], '{dd}', false))+2022-31;
+        },
+        offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+        fontSize: 7
+      },
+      data: scatterData
+    },
+    ...pieSeries
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
